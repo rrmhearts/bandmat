@@ -8,6 +8,7 @@
 import unittest
 import random
 from numpy.random import randn, randint
+import numpy as np
 
 from bandmat.misc import fancy_plus_equals, fancy_plus_equals_2d
 from bandmat.misc import fancy_plus_equals_3d
@@ -23,7 +24,9 @@ class TestMisc(unittest.TestCase):
             target_size = random.choice([1, randint(1, 10), randint(1, 100)])
             source = randn(source_size)
             target = randn(target_size)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             array_mem = get_array_mem(target_index_seq, source, target)
 
             target_good = target.copy()
@@ -41,7 +44,9 @@ class TestMisc(unittest.TestCase):
             target_size = random.choice([1, randint(1, 10), randint(1, 100)])
             source = randn(source_size)
             target = randn(target_size)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             target_index_seq[randint(source_size)] = (
                 (-target_size - 1 - randint(10)) if rand_bool()
                 else target_size + randint(10)
@@ -57,7 +62,9 @@ class TestMisc(unittest.TestCase):
             size1 = random.choice([0, 1, randint(10)])
             source = randn(source_size, size1)
             target = randn(target_size, size1)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             array_mem = get_array_mem(target_index_seq, source, target)
 
             target_good = target.copy()
@@ -76,7 +83,9 @@ class TestMisc(unittest.TestCase):
             size1 = random.choice([1, randint(1, 10)])
             source = randn(source_size, size1)
             target = randn(target_size, size1)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             target_index_seq[randint(source_size)] = (
                 (-target_size - 1 - randint(10)) if rand_bool()
                 else target_size + randint(10)
@@ -93,7 +102,9 @@ class TestMisc(unittest.TestCase):
             size2 = random.choice([0, 1, randint(10)])
             source = randn(source_size, size1, size2)
             target = randn(target_size, size1, size2)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             array_mem = get_array_mem(target_index_seq, source, target)
 
             target_good = target.copy()
@@ -113,7 +124,9 @@ class TestMisc(unittest.TestCase):
             size2 = random.choice([1, randint(1, 10)])
             source = randn(source_size, size1, size2)
             target = randn(target_size, size1, size2)
-            target_index_seq = randint(target_size, size=source_size)
+            # Explicitly set the dtype to what Cython expects.
+            target_index_seq = randint(target_size, size=source_size, dtype=np.int64)
+            # -----------------------
             target_index_seq[randint(source_size)] = (
                 (-target_size - 1 - randint(10)) if rand_bool()
                 else target_size + randint(10)
