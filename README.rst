@@ -3,9 +3,9 @@ bandmat
 
 |Linux build status| |Windows build status|
 
-.. |Linux build status| image:: https://travis-ci.org/MattShannon/bandmat.svg?branch=master
+.. |Linux build status| image:: https://github.com/rrmhearts/bandmat/actions/workflows/python-package.yml/badge.svg
    :alt: Linux build status
-   :target: https://travis-ci.org/MattShannon/bandmat
+   :target: https://github.com/rrmhearts/bandmat/actions/workflows/python-package.yml
 .. |Windows build status| image:: https://ci.appveyor.com/api/projects/status/cy8ouawd9bnus0ai/branch/master?svg=true
    :alt: Windows build status
    :target: https://ci.appveyor.com/project/MattShannon/bandmat/branch/master
@@ -154,3 +154,4 @@ Contact
 -------
 
 The author of bandmat is `Matt Shannon <mailto:matt.shannon@cantab.net>`_.
+
