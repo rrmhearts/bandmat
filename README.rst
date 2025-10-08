@@ -118,6 +118,9 @@ To compile the cython part of bandmat in the current directory::
 
     python setup.py build_ext --inplace
 
+Local install of built packages::
+    python setup.py install
+
 This command must be run after every modification to the source ``.pyx`` files.
 
 A note on ``setup.py``
